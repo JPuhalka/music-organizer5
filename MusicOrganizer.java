@@ -129,29 +129,17 @@ public class MusicOrganizer
         }
     } 
 
-    public void randomTracks() 
+    public void randomPlay()
     {
-        ArrayList<Track> randomList = buildRandomList();
-        playList(randomList);
-    }
-
-    private ArrayList<Track> buildRandomList() 
-    {
-        ArrayList<Track> randomList = new ArrayList<Track>(this.tracks);
-        
-        return randomList;
-    }
-
-    public void playList(ArrayList<Track> playList) 
-    {
-        if(playList.size() > 0) 
+    ArrayList<Track>toPlay = new ArrayList<Track>(tracks);
+    Collections.shuffle(toPlay);
+    
+        for (Track temp : toPlay)
         {
-            for(Track track : playList) 
-            {
-                player.startPlaying(track.getFilename());
-            }
+            player.startPlaying(tracks.get(0).getFilename());
         }
     }
+  
     
     /**
      * Stop the player.
